@@ -1,4 +1,4 @@
-package SNAKE_PC.demo.model;
+package SNAKE_PC.demo.model.producto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,17 +11,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "marca")
+@Table(name = "refrigeracion")
 @Data
-@AllArgsConstructor
+@AllArgsConstructor  
 @NoArgsConstructor
-public class Marca {
-    
+public class Refrigeracion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", nullable = false, unique = true)
-    private String nombre;  
-
+    @Column(name = "tipo", nullable = false)
+    private String tipo;
+    
 }

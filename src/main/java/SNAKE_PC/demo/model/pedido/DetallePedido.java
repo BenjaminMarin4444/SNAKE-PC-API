@@ -1,5 +1,6 @@
-package SNAKE_PC.demo.model;
+package SNAKE_PC.demo.model.pedido;
 
+import SNAKE_PC.demo.model.producto.Producto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

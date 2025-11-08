@@ -1,5 +1,4 @@
-package SNAKE_PC.demo.model;
-
+package SNAKE_PC.demo.model.pedido;
 
 import java.time.LocalDate;
 
@@ -18,26 +17,32 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "pedido")
+@Table(name = "pago")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pedido {
+public class Pago {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha_pedido", nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaPedido;
+    @Column(name = "monto", nullable = false)
+    private Double monto;
 
-    @Column(name = "estado", nullable = false)
-    private String estado;
+    @Column(name = "fecha_pago", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd") 
+    private LocalDate fechaPago;
+
+    @Column(name = "estado_pago")
+    private String estadoPago;
 
     @ManyToOne
-    @JoinColumn(name = "id_contacto", nullable = false)
-    private Contacto contacto;
+    @JoinColumn(name = "id_metodo_pago", nullable = false)
+    private MetodoPago metodoPago;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "id_pedido", nullable = false)
+    private Pedido pedido;
+
 }

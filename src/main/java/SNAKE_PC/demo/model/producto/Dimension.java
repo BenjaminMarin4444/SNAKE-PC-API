@@ -1,4 +1,4 @@
-package SNAKE_PC.demo.model;
+package SNAKE_PC.demo.model.producto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,17 +11,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "metodo_pago")
+@Table(name = "dimension")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MetodoPago {
+
+public class Dimension {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tipo_pago", nullable = false, unique = true)
-    private String tipoPago;
+    @Column(name = "Largo", nullable = false)
+    private String largo;
+
+    @Column(name = "Ancho", nullable = false)
+    private String ancho;
+
+    @Column(name = "Alto", nullable = false)
+    private String alto;    
+
+
 
 }

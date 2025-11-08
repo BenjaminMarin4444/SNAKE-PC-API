@@ -1,4 +1,4 @@
-package SNAKE_PC.demo.model;
+package SNAKE_PC.demo.model.pedido;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,16 +11,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "rol_usuario")
-@Data  
+@Table(name = "metodo_pago")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RolUsuario {
+public class MetodoPago {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre_rol", nullable = false, unique = true)
-    private String nombreRol;
+    @Column(name = "tipo_pago", nullable = false, unique = true)
+    private String tipoPago;
+
 }

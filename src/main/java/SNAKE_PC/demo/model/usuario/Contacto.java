@@ -1,5 +1,4 @@
-package SNAKE_PC.demo.model;
-
+package SNAKE_PC.demo.model.usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,26 +13,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "contacto")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
-    
+
+public class Contacto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; 
 
-    @Column(name = "nombre_usuario",nullable = false, unique = true)
-    private String nombreUsuario;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
 
-    @Column(name = "correo", nullable = false, unique = true)
-    private String correo;
+    @Column(name = "apellido", nullable = false)
+    private String apellido;
 
-    @Column(name = "contrasena",nullable = false)
-    private String contrasena;    
+    @Column(name = "Telefono", nullable = false, unique = true)
+    private Integer telefono;
 
     @ManyToOne
-    @JoinColumn(name = "id_rol_usuario", nullable = false)
-    private RolUsuario rolUsuario;
+    @JoinColumn(name = "id_usuario", nullable = true, unique = true)
+    private Usuario usuario;
+
 }

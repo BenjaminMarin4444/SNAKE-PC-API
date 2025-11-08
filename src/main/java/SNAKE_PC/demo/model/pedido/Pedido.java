@@ -1,10 +1,11 @@
-package SNAKE_PC.demo.model;
+package SNAKE_PC.demo.model.pedido;
 
 
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import SNAKE_PC.demo.model.usuario.Contacto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,24 +19,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "boleta")
+@Table(name = "pedido")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Boleta {
+public class Pedido {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "numero_boleta", nullable = false, unique = true)
-    private String numeroBoleta;
-
-    @Column(name = "fecha_emision", nullable = false)
+    @Column(name = "fecha_pedido", nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaEmision;
+    private LocalDate fechaPedido;
+
+    @Column(name = "numero_pedido", unique = true)
+    private String numeroPedido;
 
     @ManyToOne
-    @JoinColumn(name = "id_pago", nullable = false)
-    private MetodoPago metodoPago;
+    @JoinColumn(name = "id_contacto", nullable = false)
+    private Contacto contacto;
+
+     @ManyToOne
+    @JoinColumn(name = "id_estado_pedido", nullable = false)
+    private EstadoPedido estado;
+    
 }
