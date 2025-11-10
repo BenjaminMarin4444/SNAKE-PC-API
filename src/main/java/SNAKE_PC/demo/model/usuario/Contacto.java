@@ -36,4 +36,8 @@ public class Contacto {
     @JoinColumn(name = "id_usuario", nullable = true, unique = true)
     private Usuario usuario;
 
+    @ManyToOne
+    @JoinColumn(name = "id_rol_usuario", nullable = true)
+    private RolUsuario rolUsuario;
+
 }
