@@ -6,7 +6,4 @@ import SNAKE_PC.demo.model.pedido.DetallePedido;
 
 public interface DetalleRepository extends JpaRepository<DetallePedido, Long> {
 
-    
-
-    
 }
