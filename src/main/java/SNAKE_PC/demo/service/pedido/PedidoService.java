@@ -28,8 +28,6 @@ public class PedidoService {
         if (pedido.getUsuario() == null) {
             throw new IllegalArgumentException("El pedido debe tener un usuario asociado.");
         }
-        // Aquí podrías validar otros campos importantes, ejemplo: total, lista de
-        // productos, fecha, etc.
         return pedidoRepository.save(pedido);
     }
 
